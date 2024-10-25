@@ -17,6 +17,10 @@
     color: #6c757d;
 }
 
+.errorBanner {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .chart-container {
         height: 300px;

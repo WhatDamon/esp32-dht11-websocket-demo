@@ -8,15 +8,11 @@ By WhatDamon & GLM4 & Qwen 2.5
 
 客户端注释没怎么额外人工补充, 个人认为算比较好读的 (逃
 
-本项目在个人的ESP-WROOM-32测试通过, 虽然代价是不小心把电源接口给干下来了......
+本项目在个人的ESP-WROOM-32测试通过, 手头上也有ESP32-C8-WROOM-1但懒得测试了
 
 ## 截图
 
-- **正式版:**
-![正式截图](./screenshots/client.jpeg)
-
-- **开发版:**
-![开发中的截图](./screenshots/indev.png)
+![客户端截图](./screenshots/client.jpg)
 
 ## 如何使用
 
@@ -37,6 +33,10 @@ By WhatDamon & GLM4 & Qwen 2.5
 这里提供一个示例, 乱画的, 但大致就是这个意思 *(DHT11就是这里的DHT22, 意思一下吧)*
 
 ![连接示例](./screenshots/esp.png)
+
+>[!WARNING]
+>
+>目前服务端默认使用81端口作为WebSocket通信端口, 连接时请注意!
 
 ### 客户端
 
@@ -60,7 +60,7 @@ python -m http.server 1000
 
 ![Micro-USB接口用力过猛干下来了](./screenshots/bkesp32.jpg)
 
-*以后有机会重新焊接上去也不是不能用, 芯片没坏*
+_已经买一个新的, 项目依旧可以继续开发_
 
 ## 许可证
 

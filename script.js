@@ -8,8 +8,13 @@ var chart;
 var hasError = false;
 var isReconnecting = false;
 
-function connect() {
-    ws = new WebSocket('ws://192.168.50.189:81');
+function connect(url) {
+    // 连接服务端
+    if (ws && ws.readyState !== WebSocket.CLOSED) {
+        ws.close();
+    }
+
+    ws = new WebSocket(url);
 
     ws.onopen = function () {
         console.log('Connected to the WebSocket server.');
@@ -34,6 +39,7 @@ function connect() {
                 var comfort = temp + (0.55 * (1 - (humidity / 100)) * (temp - 14.5));
                 var feeling;
 
+                // THI指数可视化
                 if (comfort < 20) {
                     feeling = "Very Comfort"
                 } else if (comfort >= 20 && comfort < 25) {
@@ -187,5 +193,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    connect();
+    // 初始连接, 使用本地回环
+    connect('ws://127.0.0.1');
+
+    // 添加提交按钮的点击事件监听器
+    document.getElementById('wsSubmit').addEventListener('click', function () {
+        var wsUrl = document.getElementById('wsUrlInput').value.trim();
+        if (wsUrl) {
+            if (!wsUrl.startsWith('ws://') && !wsUrl.startsWith('wss://')) {
+                wsUrl = 'ws://' + wsUrl;
+            }
+            connect(wsUrl);
+        }
+    });
 });
