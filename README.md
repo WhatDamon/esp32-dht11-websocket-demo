@@ -8,7 +8,7 @@ By WhatDamon & GLM4 & Qwen 2.5
 
 客户端注释没怎么额外人工补充, 个人认为算比较好读的 (逃
 
-本项目在个人的ESP-WROOM-32测试通过, 手头上也有ESP32-C8-WROOM-1但懒得测试了
+本项目在个人的ESP-WROOM-32测试通过, 手头上也有ESP32-C6-WROOM-1但懒得测试了
 
 ## 截图
 
